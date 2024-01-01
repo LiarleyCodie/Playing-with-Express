@@ -1,0 +1,11 @@
+<h1>Users Registered:</h1>
+
+<ul class="usersList">
+  <% usersDb.forEach(user => { %>
+  <li>
+    <p>Id: <b><%= user.id %></b></p>
+    <p>Name: <b><%= user.name %></b></p>
+    <button class="btn">See more...</button>
+  </li>
+  <% }) %>
+</ul>
