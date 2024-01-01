@@ -1,0 +1,114 @@
+<section>
+  <h1>User</h1>
+  <h3>Name: <%= user.name %></h3>
+  <h4>Age: <%= user.age %></h4>
+  <h4>Description: <%= user.description %></h4>
+  <h4>Summary: <%= user.summary %></h4>
+
+  <button class="btn" id="editUserBtn">Edit</button>
+  <button class="btn cancel">Delete</button>
+</section>
+
+<!-- Update Modal -->
+<div class="modal visible" id="userUpdateModal">
+  <!-- class="visible" shows the new user modal -->
+  <h2>Update <%= user.name %> informations</h2>
+
+  <form action="/users/<%= user.id %>/edit" method="post">
+    <div class="input-block">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Éllie"
+        value="<%= user.name %>"
+      />
+    </div>
+
+    <div class="input-block">
+      <label for="age">Age:</label>
+      <input
+        type="number"
+        name="age"
+        id="age"
+        placeholder="25"
+        min="0"
+        value="<%= user.age %>"
+      />
+    </div>
+
+    <div class="input-block">
+      <label for="description">Description:</label>
+      <input
+        type="text"
+        name="description"
+        id="description"
+        placeholder="Tech Enthusiast"
+        value="<%= user.description %>"
+      />
+    </div>
+
+    <div class="input-block">
+      <label for="summary">Summary:</label>
+      <textarea
+        name="summary"
+        id="summary"
+        placeholder="Passionate about building meaningful connections."
+        cols="30"
+        rows="7"
+      >
+<%= user.summary %></textarea
+      >
+    </div>
+
+    <div class="buttons">
+      <input class="btn" type="submit" value="Update" id="updateUser" />
+      <button class="btn cancel" id="cancelModalBtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<!-- New User Modal -->
+<div class="modal" id="newUserModal">
+  <!-- class="visible" shows the new user modal -->
+  <h2>Insert a new user</h2>
+
+  <form action="/users/new" method="post">
+    <div class="input-block">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" placeholder="Éllie" />
+    </div>
+
+    <div class="input-block">
+      <label for="age">Age:</label>
+      <input type="number" name="age" id="age" placeholder="25" min="0" />
+    </div>
+
+    <div class="input-block">
+      <label for="description">Description:</label>
+      <input
+        type="text"
+        name="description"
+        id="description"
+        placeholder="Tech Enthusiast"
+      />
+    </div>
+
+    <div class="input-block">
+      <label for="summary">Summary:</label>
+      <textarea
+        name="summary"
+        id="summary"
+        placeholder="Passionate about building meaningful connections."
+        cols="30"
+        rows="7"
+      ></textarea>
+    </div>
+
+    <div class="buttons">
+      <input class="btn" type="submit" value="Create" id="createNewUser" />
+      <button class="btn cancel" id="cancelModalBtn">Cancel</button>
+    </div>
+  </form>
+</div>

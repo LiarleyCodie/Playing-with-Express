@@ -20,6 +20,10 @@ input {
   font-family: inherit;
 }
 
+a {
+  text-decoration: none;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -29,10 +33,12 @@ input {
 
 .usersList {
   display: flex;
-  flex-direction: column;
   gap: 0.8rem;
   list-style-type: none;
+  flex-wrap: wrap;
   margin-top: 2rem;
+  max-width: 69.4rem;
+  width: 100%;
 }
 
 .usersList li {
@@ -42,6 +48,7 @@ input {
   flex-direction: column;
   gap: 0.4rem;
   border-radius: 0.8rem;
+  background: white;
 }
 
 .btn {
@@ -82,12 +89,12 @@ input {
 }
 
 /* new user modal */
-.new-user-modal {
+.modal {
   visibility: hidden;
   display: none;
 }
 
-.new-user-modal.visible {
+.modal.visible {
   position: fixed;
   background: white;
   padding: 1.4rem;
@@ -101,18 +108,18 @@ input {
   visibility: visible;
 }
 
-.new-user-modal form {
+.modal form {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
-.new-user-modal .input-block {
+.modal .input-block {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.new-user-modal .buttons {
+.modal .buttons {
   display: flex;
   width: 100%;
   align-items: center;
@@ -120,18 +127,18 @@ input {
   gap: 1.6rem;
 }
 
-.new-user-modal .buttons button,
-.new-user-modal .buttons input {
+.modal .buttons button,
+.modal .buttons input {
   width: 100%;
 }
 
-.new-user-modal h2 {
+.modal h2 {
   margin-bottom: 1.2rem;
   color: #6c6ca0;
 }
 
-.new-user-modal .input-block input,
-.new-user-modal .input-block textarea {
+.modal .input-block input,
+.modal .input-block textarea {
   display: flex;
   flex-direction: column;
   padding: 0.8rem 1.2rem;
@@ -143,25 +150,25 @@ input {
   outline: none;
 }
 
-.new-user-modal .input-block input[type='number']::-webkit-outer-spin-button,
-.new-user-modal .input-block input[type='number']::-webkit-inner-spin-button {
+.modal .input-block input[type='number']::-webkit-outer-spin-button,
+.modal .input-block input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.new-user-modal .input-block input[type='number'] {
+.modal .input-block input[type='number'] {
   -moz-appearance: textfield;
 }
 
-.new-user-modal .input-block textarea {
+.modal .input-block textarea {
   resize: vertical;
 }
 
-.new-user-modal .input-block label {
+.modal .input-block label {
   color: #6c6ca0;
   font-size: 1.2rem;
 }
 
-.new-user-modal .input-block:focus-within input {
+.modal .input-block:focus-within input {
   border-color: rgb(145, 145, 240);
 }

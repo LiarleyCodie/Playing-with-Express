@@ -14,6 +14,10 @@ class LocalDatabase {
       return { id: user[0], ...user[1] }
     })
   }
+  getUser(id) {
+    const user = this.#users.get(id)
+    return { id, ...user }
+  }
   updateUser(id, user) {
     this.#users.set(id, user)
   }

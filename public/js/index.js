@@ -1,45 +1,48 @@
-console.log('Hello, Ouldi')
-
-const newUserBtn = document.getElementById('newUser')
-const cancelNewUserBtn = document.getElementById('cancelNewUser')
-const createNewUserBtn = document.getElementById('createNewUser')
 const newUserModal = document.getElementById('newUserModal')
-const inputs = document.querySelectorAll('.input-block input')
-const textarea = document.querySelector('.input-block textarea')
+const updateUserModal = document.getElementById('userUpdateModal')
+const createNewUserBtn = document.getElementById('createNewUser')
+const newUserBtn = document.getElementById('newUser')
+const cancelNewUserModalBtn = document.querySelector(
+  '#newUserModal #cancelModalBtn'
+)
 
-newUserBtn.addEventListener('click', () => {
-  openModal()
-})
-
-cancelNewUserBtn.addEventListener('click', (e) => {
+cancelNewUserModalBtn.addEventListener('click', (e) => {
   e.preventDefault()
-  closeModal()
-  resetInputs()
+  resetInputs('newUserModal')
+  closeModal(newUserModal)
 })
 
-createNewUserBtn.addEventListener('click', (e) => {
-  checkEmptyInputs() && e.preventDefault()
-})
+function resetInputs(modalElementId) {
+  const inputs = document.querySelectorAll(
+    `#${modalElementId} .input-block input`
+  )
+  const textarea = document.querySelector(
+    `#${modalElementId} .input-block textarea`
+  )
 
-function resetInputs() {
   inputs.forEach((input) => {
     input.value = ''
   })
   textarea.value = ''
 }
 
-function openModal() {
-  newUserModal.classList.add('visible')
+function openModal(modalElement) {
+  modalElement.classList.add('visible')
   document.body.style.overflowY = 'hidden'
 }
 
-function closeModal() {
-  newUserModal.classList.remove('visible')
+function closeModal(modalElement) {
+  modalElement.classList.remove('visible')
   document.body.style.overflowY = 'auto'
 }
 
-function checkEmptyInputs() {
-  alert('Fill in all fields!')
+function checkEmptyInputs(modalElementId) {
+  const inputs = document.querySelectorAll(
+    `#${modalElementId} .input-block input`
+  )
+  const textarea = document.querySelector(
+    `#${modalElementId} .input-block textarea`
+  )
 
   let hasEmptyInputs = false
   inputs.forEach((input) => {
@@ -47,5 +50,33 @@ function checkEmptyInputs() {
   })
   if (textarea.value.trim() == '') hasEmptyInputs = true
 
+  if (hasEmptyInputs) alert('Fill in all fields!')
+
   return hasEmptyInputs
+}
+
+// New User Modal
+newUserBtn.addEventListener('click', () => {
+  openModal(newUserModal)
+})
+
+createNewUserBtn.addEventListener('click', (e) => {
+  checkEmptyInputs('newUserModal') && e.preventDefault()
+})
+
+// Update User Modal
+if (updateUserModal) {
+  const editUserBtn = document.getElementById('editUserBtn')
+  const cancelUpdateUserModal = document.querySelector(
+    '#userUpdateModal #cancelModalBtn'
+  )
+
+  editUserBtn.addEventListener('click', () => {
+    openModal(updateUserModal)
+  })
+
+  cancelUpdateUserModal.addEventListener('click', (e) => {
+    e.preventDefault()
+    closeModal(updateUserModal)
+  })
 }
