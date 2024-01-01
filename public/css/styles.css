@@ -14,7 +14,9 @@ body {
   min-height: 100vh;
 }
 
-button {
+button,
+textarea,
+input {
   font-family: inherit;
 }
 
@@ -46,15 +48,29 @@ button {
   padding: 1.2rem 2rem;
   border: 0;
   cursor: pointer;
-  border: 1px solid #cce;
   border-radius: 0.5rem;
-  background: white;
   margin-top: 0.4rem;
+  background: white;
+  border: 1px solid #cce;
+  color: #6c6ca0;
+}
+
+.btn.cancel {
+  background: rgb(255, 241, 241);
+  border-color: rgb(238, 204, 204);
+  color: #a06c6c;
+}
+
+.btn.cancel:hover {
+  background: rgb(255, 226, 226);
+  border-color: #f09191;
+  color: #d46060;
 }
 
 .btn:hover {
   background: rgb(244, 244, 255);
-  border-color: rgb(145, 145, 240);
+  border-color: #9191f0;
+  color: #6060d4;
 }
 
 .header {
@@ -63,4 +79,89 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/* new user modal */
+.new-user-modal {
+  visibility: hidden;
+  display: none;
+}
+
+.new-user-modal.visible {
+  position: fixed;
+  background: white;
+  padding: 1.4rem;
+  border: 1px solid #cce;
+  border-radius: 0.8rem;
+  box-shadow: 0 1rem 2rem -1.5rem rgba(0, 0, 0, 0.5);
+  max-width: 53rem;
+  width: 100%;
+  z-index: 100;
+  display: block;
+  visibility: visible;
+}
+
+.new-user-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.new-user-modal .input-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.new-user-modal .buttons {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.new-user-modal .buttons button,
+.new-user-modal .buttons input {
+  width: 100%;
+}
+
+.new-user-modal h2 {
+  margin-bottom: 1.2rem;
+  color: #6c6ca0;
+}
+
+.new-user-modal .input-block input,
+.new-user-modal .input-block textarea {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem 1.2rem;
+  border: 0;
+  border: 1px solid #cce;
+  border-radius: 0.7rem;
+  background: white;
+  margin-top: 0.4rem;
+  outline: none;
+}
+
+.new-user-modal .input-block input[type='number']::-webkit-outer-spin-button,
+.new-user-modal .input-block input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.new-user-modal .input-block input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.new-user-modal .input-block textarea {
+  resize: vertical;
+}
+
+.new-user-modal .input-block label {
+  color: #6c6ca0;
+  font-size: 1.2rem;
+}
+
+.new-user-modal .input-block:focus-within input {
+  border-color: rgb(145, 145, 240);
 }

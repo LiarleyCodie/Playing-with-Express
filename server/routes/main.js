@@ -53,4 +53,10 @@ router.get('/', (req, res) => {
   }
 })
 
+router.post('/new-user', (req, res) => {
+  const { name, age, description, summary } = req.body
+  database.insertUser({ name, age, description, summary })
+  res.status(201).redirect('/')
+})
+
 module.exports = router

@@ -9,3 +9,55 @@
   </li>
   <% }) %>
 </ul>
+
+<div class="new-user-modal" id="newUserModal">
+  <!-- class="visible" shows the new user modal -->
+  <h2>Insert a new user</h2>
+
+  <form action="/new-user" method="post">
+    <div class="input-block">
+      <label for="name">Name:</label>
+      <input required type="text" name="name" id="name" placeholder="Éllie" />
+    </div>
+
+    <div class="input-block">
+      <label for="age">Age:</label>
+      <input
+        required
+        type="number"
+        name="age"
+        id="age"
+        placeholder="25"
+        min="0"
+      />
+    </div>
+
+    <div class="input-block">
+      <label for="description">Description:</label>
+      <input
+        required
+        type="text"
+        name="description"
+        id="description"
+        placeholder="Tech Enthusiast"
+      />
+    </div>
+
+    <div class="input-block">
+      <label for="summary">Summary:</label>
+      <textarea
+        name="summary"
+        id="summary"
+        placeholder="Passionate about building meaningful connections."
+        cols="30"
+        rows="7"
+        required
+      ></textarea>
+    </div>
+
+    <div class="buttons">
+      <input class="btn" type="submit" value="Create" id="createNewUser" />
+      <button class="btn cancel" id="cancelNewUser">Cancel</button>
+    </div>
+  </form>
+</div>
