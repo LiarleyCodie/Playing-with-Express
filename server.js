@@ -6,6 +6,9 @@ const { LocalDatabase } = require('./server/helpers/localDatabase.js')
 
 const database = new LocalDatabase()
 ;(function () {
+  /**
+   * This method is just for insert placeholder users on the static local database
+   */
   ;[
     {
       name: 'Alice',
