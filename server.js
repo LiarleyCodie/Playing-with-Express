@@ -55,5 +55,11 @@ app.set('view engine', 'ejs')
 module.exports = { database }
 app.use('/', require('./server/routes/main.js'))
 app.use('/', require('./server/routes/users.js'))
+app.use((req, res) => {
+  const locals = {
+    title: '404 - Not Found',
+  }
+  res.status(404).render('notfound', { locals })
+})
 
 app.listen(PORT, () => console.log(`listening on http://localhost:${3333}`))
