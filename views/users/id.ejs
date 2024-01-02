@@ -6,15 +6,21 @@
   <h4>Summary: <%= user.summary %></h4>
 
   <button class="btn" id="editUserBtn">Edit</button>
-  <button class="btn cancel">Delete</button>
+  <form
+    action="/users/<%= user.id %>?_method=DELETE"
+    style="display: inline"
+    method="post"
+  >
+    <input type="submit" class="btn cancel" value="Delete" />
+  </form>
 </section>
 
 <!-- Update Modal -->
-<div class="modal visible" id="userUpdateModal">
+<div class="modal" id="userUpdateModal">
   <!-- class="visible" shows the new user modal -->
   <h2>Update <%= user.name %> informations</h2>
 
-  <form action="/users/<%= user.id %>/edit" method="post">
+  <form action="/users/<%= user.id %>" method="post">
     <div class="input-block">
       <label for="name">Name:</label>
       <input

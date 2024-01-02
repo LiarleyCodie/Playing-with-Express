@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const expressLayout = require('express-ejs-layouts')
+const methodOverride = require('method-override')
 const { LocalDatabase } = require('./server/helpers/localDatabase.js')
 
 const database = new LocalDatabase()
@@ -45,6 +46,7 @@ const PORT = 3333 ?? process.env.PORT
 
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 app.use(expressLayout)
 app.set('layout', './layouts/main')
